@@ -40,7 +40,7 @@ int goto_tbl[12][4] = { // goto 테이블 정의 (상태 x 비터미널 심볼)
         {0, 0, 0, 0},
         {0, 0, 0, 0}};
 
-// left-handside 심볼과 규칙 길이 정의
+// left hand-side 심볼과 규칙 길이 정의
 char lhs[] = {' ', 'E', 'E', 'T', 'T', 'F', 'F'};
 int rhs_len[] = {0, 3, 1, 3, 1, 3, 1};
 
@@ -107,7 +107,7 @@ void LR_Parser(char *input) {
         int action = get_action(state, symbol); //액션 결정
 
         // 액션에 따른 처리들
-        if (action == -100) { // Invalide token
+        if (action == -100) { // Invalid token
             printf("(%d) invalid token (%c) error\n", step++, symbol);
             return;
         }
@@ -143,7 +143,7 @@ int main(){
     while (1){
         printf("\nInput: ");
         scanf("%s", input);
-        if (input[0] == '$') // '$; 입력 시 종료
+        if (input[0] == '$') // '$' 입력 시 종료
             break;
         LR_Parser(input);
     }
